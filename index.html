@@ -60,5 +60,30 @@
             navigator.serviceWorker.register("service-worker.js");
         }
     </script>
+
+    <script>
+  let deferredPrompt;
+  const installBtn = document.getElementById("installBtn");
+
+  // Muncul saat aplikasi bisa diinstall
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = "block"; // tampilkan tombol
+  });
+
+  installBtn.addEventListener("click", async () => {
+    installBtn.style.display = "none"; // sembunyikan tombol
+
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt(); // munculkan dialog install
+
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log("Hasil:", outcome);
+
+    deferredPrompt = null;
+  });
+    </script>
 </body>
 </html>
