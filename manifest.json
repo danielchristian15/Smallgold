@@ -1,7 +1,8 @@
 {
   "name": "Smallgold",
   "short_name": "Smallgold",
-  "start_url": "index.html",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#111",
   "theme_color": "#FFD700",
