@@ -2,11 +2,11 @@ self.addEventListener("install", event => {
   event.waitUntil(
     caches.open("smallgold-cache").then(cache => {
       return cache.addAll([
-        "/",
-        "index.html",
-        "style.css",
-        "manifest.json",
-        "icon.png"
+        "./",
+        "./index.html",
+        "./style.css",
+        "./manifest.json",
+        "./icon.png"
       ]);
     })
   );
